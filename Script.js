@@ -44,17 +44,20 @@ function insertarFila(nombre, actual, max, min, avg, senal) {
 
     promediosAnteriores[nombre] = avg;
 
-    // Color para Signal
-    const signalClass = senal === "B" ? "bg-success text-white fw-bold" : "bg-danger text-white fw-bold";
+    // Íconos y clases para la señal
+    const clase = senal === "B" ? "signal-buy" : "signal-sell";
+    const icono = senal === "B" ? "📈" : "📉";
+    const texto = senal === "B" ? "BUY" : "SELL";
 
     fila.innerHTML = `
         <td>${nombre}</td>
-        <td>${actual.toFixed(8)}</td>
-        <td>${max.toFixed(8)}</td>
-        <td>${min.toFixed(8)}</td>
-        <td class="${avgClass}">${avg.toFixed(8)}</td>
-        <td class="${signalClass}">${senal}</td>
+        <td class="numeric">${actual.toFixed(8)}</td>
+        <td class="numeric">${max.toFixed(8)}</td>
+        <td class="numeric">${min.toFixed(8)}</td>
+        <td class="numeric ${avgClass}">${avg.toFixed(8)}</td>
+        <td class="signal-cell ${clase}">${icono} ${texto}</td>
     `;
+
     tablaBody.appendChild(fila);
 }
 
@@ -73,17 +76,6 @@ function guardarEnBD(nombre, actual, max, min, avg, senal) {
     }).catch(error => console.error("Error al guardar en BD:", error));
 }
 
+// Carga inicial y actualización cada 30 segundos
 obtenerDatos();
 setInterval(obtenerDatos, 30000);
-
-
-const fila = document.createElement("tr");
-fila.innerHTML = `
-    <td>Bitcoin</td>
-    <td>$42,000</td>
-    <td>$42,500</td>
-    <td>$41,000</td>
-    <td>$41,800</td>
-    <td class="signal-cell signal-buy">BUY</td>
-`;
-document.querySelector("#tabla-crypto tbody").appendChild(fila);
