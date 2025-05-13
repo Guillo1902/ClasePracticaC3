@@ -1,48 +1,19 @@
-body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f8f9fa;
-}
-
-h1 {
+.signal-cell {
     font-weight: bold;
-    color: #343a40;
-}
-
-.table {
-    background-color: #ffffff;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-}
-
-.table thead th {
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    letter-spacing: 0.05em;
-    background-color: #343a40 !important;
-    color: #ffffff;
-}
-
-.table td, .table th {
-    vertical-align: middle;
-    font-size: 0.95rem;
-}
-
-.table-hover tbody tr:hover {
-    background-color: #f1f1f1;
+    color: white;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.5rem;
 }
 
 .signal-buy {
-    color: #198754; /* verde */
-    font-weight: bold;
+    background-color: #198754; /* Verde */
 }
 
 .signal-sell {
-    color: #dc3545; /* rojo */
-    font-weight: bold;
-}
-
-.table td.signal-cell {
-    font-size: 1rem;
-    letter-spacing: 1px;
+    background-color: #dc3545; /* Rojo */
 }
